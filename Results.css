@@ -1,0 +1,150 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #fff; /* Ensures text is readable */
+    background-color: #0a192f; /* Deep blue for a modern feel */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #003366, #001a33);
+    color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffcc00; /* Gold for contrast */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 15px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #ffcc00;
+    color: #003366;
+}
+p{
+    color: #ffcc00;
+}
+
+/* Results Section */
+#results {
+    background: linear-gradient(135deg, #003366, #004c99);
+    padding: 40px;
+    max-width: 900px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+#results h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #ffcc00;
+    margin-bottom: 10px;
+}
+
+#results p {
+    text-align: center;
+    color: #a41d1d;
+    font-size: 2rem;
+}
+
+/* Results Table */
+#resultsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table Header */
+#resultsTable th {
+    background: #ffcc00; /* Gold header for visibility */
+    color: #003366; /* Dark blue text for contrast */
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 14px;
+    text-align: center;
+    border-bottom: 3px solid #003366; /* Separates header from body */
+}
+
+/* Table Body */
+#resultsTable td {
+    background: #1e3a5f; /* Dark navy blue for contrast */
+    color: #6c0a0a; /* White text for clarity */
+    padding: 12px;
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Alternating Row Colors */
+#resultsTable tr:nth-child(even) td {
+    background: #2a4f78; /* Lighter blue for better separation */
+}
+
+/* Bold first column (Candidate Name) for emphasis */
+#resultsTable td:first-child {
+    font-weight: bold;
+    color: #ffcc00; /* Matches header for consistency */
+}
+
+/* Larger font for vote counts */
+#resultsTable td:nth-child(3), 
+#resultsTable td:nth-child(4) {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00e676; /* Green for vote numbers */
+}
+
+/* Vote Graph */
+#voteGraph {
+    margin-top: 40px;
+    text-align: center;
+}
+
+canvas {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #001a33, #003366);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer .social-icons a {
+    color: #ffcc00;
+    margin: 0 12px;
+    font-size: 22px;
+    transition: transform 0.3s ease-in-out;
+}
+
+footer .social-icons a:hover {
+    transform: scale(1.2);
+}

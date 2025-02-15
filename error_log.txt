@@ -1,0 +1,127 @@
+[14-Feb-2025 08:35:28 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') VALUES (?, ?, ?)' at line 1 in C:\xampp\htdocs\VotingSytemProject\vote.php:62
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(62): mysqli->prepare('INSERT INTO vot...')
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 62
+[14-Feb-2025 08:37:44 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'id' cannot be null in C:\xampp\htdocs\VotingSytemProject\vote.php:64
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(64): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 64
+[14-Feb-2025 08:46:47 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'user_id' in 'field list' in C:\xampp\htdocs\VotingSytemProject\vote.php:60
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(60): mysqli->prepare('INSERT INTO vot...')
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 60
+[14-Feb-2025 08:51:20 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'voter_id' in 'field list' in C:\xampp\htdocs\VotingSytemProject\vote.php:60
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(60): mysqli->prepare('INSERT INTO vot...')
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 60
+[14-Feb-2025 08:52:02 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`e_voting_database`.`votes`, CONSTRAINT `votes_ibfk_1` FOREIGN KEY (`id`) REFERENCES `userlogin` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\VotingSytemProject\vote.php:64
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(64): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 64
+[14-Feb-2025 08:54:37 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'id' cannot be null in C:\xampp\htdocs\VotingSytemProject\vote.php:64
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(64): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 64
+[14-Feb-2025 08:56:11 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'id' cannot be null in C:\xampp\htdocs\VotingSytemProject\vote.php:64
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(64): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 64
+[14-Feb-2025 08:59:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'id' cannot be null in C:\xampp\htdocs\VotingSytemProject\vote.php:64
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(64): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 64
+[14-Feb-2025 09:02:44 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`e_voting_database`.`votes`, CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE) in C:\xampp\htdocs\VotingSytemProject\vote.php:64
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(64): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 64
+[14-Feb-2025 09:02:54 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`e_voting_database`.`votes`, CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE) in C:\xampp\htdocs\VotingSytemProject\vote.php:64
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(64): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 64
+[14-Feb-2025 09:03:21 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`e_voting_database`.`votes`, CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE) in C:\xampp\htdocs\VotingSytemProject\vote.php:64
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(64): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 64
+[14-Feb-2025 09:03:51 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'id' cannot be null in C:\xampp\htdocs\VotingSytemProject\vote.php:64
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(64): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 64
+[14-Feb-2025 09:07:12 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`e_voting_database`.`votes`, CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE) in C:\xampp\htdocs\VotingSytemProject\vote.php:66
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(66): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 66
+[14-Feb-2025 09:10:20 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'id' cannot be null in C:\xampp\htdocs\VotingSytemProject\vote.php:66
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(66): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 66
+[14-Feb-2025 09:12:43 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`e_voting_database`.`votes`, CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE) in C:\xampp\htdocs\VotingSytemProject\vote.php:74
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(74): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 74
+[14-Feb-2025 09:19:46 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in C:\xampp\htdocs\VotingSytemProject\vote.php:73
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(73): mysqli_stmt->bind_param('ssi', NULL, 'president', 2)
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 73
+[14-Feb-2025 09:53:35 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\VotingSytemProject\vote.php on line 18
+[14-Feb-2025 09:54:14 Europe/Berlin] PHP Warning:  Undefined array key "id" in C:\xampp\htdocs\VotingSytemProject\vote.php on line 18
+[14-Feb-2025 09:55:28 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'id' cannot be null in C:\xampp\htdocs\VotingSytemProject\vote.php:74
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(74): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 74
+[14-Feb-2025 09:57:43 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in C:\xampp\htdocs\VotingSytemProject\vote.php:73
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(73): mysqli_stmt->bind_param('ssi', NULL, 'president', 2)
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 73
+[14-Feb-2025 09:57:55 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of variables must match the number of parameters in the prepared statement in C:\xampp\htdocs\VotingSytemProject\vote.php:73
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(73): mysqli_stmt->bind_param('ssi', NULL, 'president', 1)
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 73
+[14-Feb-2025 09:58:54 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`e_voting_database`.`votes`, CONSTRAINT `votes_ibfk_1` FOREIGN KEY (`id`) REFERENCES `userlogin` (`id`) ON DELETE CASCADE) in C:\xampp\htdocs\VotingSytemProject\vote.php:74
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(74): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 74
+[14-Feb-2025 09:59:55 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`e_voting_database`.`votes`, CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE) in C:\xampp\htdocs\VotingSytemProject\vote.php:74
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(74): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 74
+[14-Feb-2025 10:18:03 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`e_voting_database`.`votes`, CONSTRAINT `votes_ibfk_2` FOREIGN KEY (`candidate_id`) REFERENCES `candidates` (`candidate_id`) ON DELETE CASCADE) in C:\xampp\htdocs\VotingSytemProject\vote.php:74
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(74): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 74
+[14-Feb-2025 10:47:24 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '1' for key 'id' in C:\xampp\htdocs\VotingSytemProject\vote.php:81
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(81): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 81
+[14-Feb-2025 11:03:15 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '1' for key 'id' in C:\xampp\htdocs\VotingSytemProject\vote.php:81
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(81): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 81
+[14-Feb-2025 11:15:33 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '1' for key 'id' in C:\xampp\htdocs\VotingSytemProject\vote.php:81
+Stack trace:
+#0 C:\xampp\htdocs\VotingSytemProject\vote.php(81): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\VotingSytemProject\vote.php on line 81
