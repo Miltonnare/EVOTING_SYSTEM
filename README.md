@@ -15,45 +15,65 @@ Frontend: HTML, CSS, JavaScript
 Backend: PHP
 Database: MySQL
 Server: Apache (XAMPP)
+
 📂 Database Schema
-Users Table (users)
+
+Users Table (userLogin)
+
 Column	Type	Attributes
-id	INT	PRIMARY KEY, AUTO_INCREMENT
-first_name	VARCHAR(50)	NOT NULL
-last_name	VARCHAR(50)	NOT NULL
+
+id	INT	PRIMARY KEY, AUTO_INCREMENT,
+
+NAME	VARCHAR(50)	NOT NULL,
+
 email	VARCHAR(100)	UNIQUE, NOT NULL
+
 password_hash	VARCHAR(255)	NOT NULL
+
 Candidates Table (candidates)
+
 Column	Type	Attributes
+
 candidate_id	INT	PRIMARY KEY, AUTO_INCREMENT
+
 name	VARCHAR(100)	NOT NULL
+
 category	ENUM('president', 'governor', 'senator')	NOT NULL
+
 Votes Table (votes)
+
 Column	Type	Attributes
+
 vote_id	INT	PRIMARY KEY, AUTO_INCREMENT
+
 user_id	INT	FOREIGN KEY REFERENCES users(id) ON DELETE CASCADE
+
 category	ENUM('president', 'governor', 'senator')	NOT NULL
+
 candidate_id	INT	FOREIGN KEY REFERENCES candidates(candidate_id) ON DELETE CASCADE
+
 
 🔧 Installation & Setup
 
+
 1️⃣ Clone the Repository
-bash
-Copy
-Edit
+
+
 git clone https://github.com/your-username/e-voting-system.git
 cd e-voting-system
 
 2️⃣ Setup Database
+
 Import database.sql into MySQL.
+
 Update database credentials in Database.php.
+
 3️⃣ Start Apache & MySQL (XAMPP/WAMP)
+
 4️⃣ Run the Project
+
 Place the project folder in the htdocs directory of XAMPP, then open:
 
-bash
-Copy
-Edit
 http://localhost/VotingSystemProject
 
 🚀 How It Works
