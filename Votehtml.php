@@ -14,9 +14,9 @@
                 <li><a href="./Home.html">HOME</a></li>
                 <li><a href="./Register.html">REGISTER</a></li>
                 <li><a href="./login.html">LOGIN</a></li>
-                <li><a href="#vote">VOTE</a></li>
-                <li><a href="#news">NEWS</a></li>
-                <li><a href="#results">RESULTS</a></li>
+                <li><a href="#Votehtml.php">VOTE</a></li>
+                <li><a href="./News.html">NEWS</a></li>
+                <li><a href="./Resultshtml.php">RESULTS</a></li>
                 <li><a href="#contact">CONTACT US</a></li>
                 <li><a href="#admin">ADMIN</a></li>
                 <li><a href="#settings">SETTINGS</a></li>

@@ -78,7 +78,7 @@ p{
 
 /* Table Header */
 #resultsTable th {
-    background: #ffcc00; /* Gold header for visibility */
+    background: #ffcc00; 
     color: #003366; /* Dark blue text for contrast */
     font-size: 18px;
     font-weight: bold;

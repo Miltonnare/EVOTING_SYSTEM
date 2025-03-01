@@ -1,28 +1,29 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f4f4f9;
-    width: 100%;
-    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
+/* Header Navigation */
 header {
-    background-color: #004080; 
+    background: linear-gradient(135deg, #004080, #002850);
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
-}
-
-nav ul li {
-    margin: 0 10px;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li a {
@@ -30,44 +31,74 @@ nav ul li a {
     color: #fff;
     font-size: 16px;
     font-weight: bold;
-    transition: color 0.3s ease-in-out;
+    padding: 8px 15px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
 }
 
 nav ul li a:hover {
-    color: #ffcc00;
+    background-color: #ffcc00;
+    color: #004080;
 }
 
+/* Voting Section */
 #vote {
-    background-color: #f4f4f4;
+    background: #fff;
     padding: 40px;
     max-width: 800px;
-    margin: 0 auto;
-    border-radius: 8px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 #vote h1 {
     text-align: center;
+    font-size: 2rem;
+    font-size: larger;
+    font-style: oblique;
     color: #00796b;
+    margin-bottom: 10px;
 }
 
 #vote p {
     text-align: center;
+    font-size: 16px;
     color: #555;
 }
 
+/* Candidate Selection */
+.category {
+    margin-top: 30px;
+}
+
+.category h2 {
+    text-align: center;
+    color: #003366;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 5px;
+}
+
+/* Candidate Options */
 .candidate-option {
     display: flex;
     align-items: center;
-    margin: 15px 0;
-    transition: background-color 0.3s ease;
+    gap: 15px;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .candidate-option:hover {
     background-color: #e0f7fa;
+    transform: scale(1.02);
 }
 
 .candidate-option input[type="radio"] {
-    margin-right: 10px;
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .candidate-option label {
@@ -75,31 +106,41 @@ nav ul li a:hover {
     align-items: center;
     gap: 10px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
 }
 
 .candidate-option img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    border: 3px solid #00796b;
+    transition: transform 0.3s ease;
 }
 
+.candidate-option:hover img {
+    transform: scale(1.1);
+}
+
+/* Submit Button */
 #submitVote {
-    background-color: #00796b;
+    background: #00796b;
     color: white;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px;
+    font-size: 18px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
     width: 100%;
+    transition: background 0.3s ease-in-out, transform 0.2s;
 }
 
 #submitVote:hover {
-    background-color: #004d40;
+    background: #004d40;
+    transform: scale(1.05);
 }
 
+/* Confirmation Message */
 #confirmationMessage {
     text-align: center;
     margin-top: 30px;
@@ -111,9 +152,31 @@ nav ul li a:hover {
 
 #confirmationMessage h3 {
     color: #388e3c;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 #confirmationMessage p {
     color: #555;
+    font-size: 16px;
 }
 
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #002850, #004080);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer .social-icons a {
+    color: #ffcc00;
+    margin: 0 12px;
+    font-size: 22px;
+    transition: transform 0.3s ease-in-out;
+}
+
+footer .social-icons a:hover {
+    transform: scale(1.2);
+}
