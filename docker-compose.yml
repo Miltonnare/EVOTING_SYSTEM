@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # MySQL Database Engine
+  db:
+    image: mysql:8.0
+    container_name: evoting_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: e_voting_database
+      MYSQL_USER: evoting_user
+      MYSQL_PASSWORD: evoting_secure_password_2026
+      MYSQL_ROOT_PASSWORD: root_secure_password_2026
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache & Session Store
+  redis:
+    image: redis:alpine
+    container_name: evoting_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  # Laravel PHP 8.3 FPM Backend Application
+  backend:
+    build:
+      context: .
+      dockerfile: ./docker/backend/Dockerfile
+    container_name: evoting_backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_NAME: "CivicVote Enterprise"
+      APP_ENV: production
+      APP_DEBUG: "false"
+      APP_KEY: "base64:E-Voting-Enterprise-Key-2026-Secure-Hash=="
+      DB_CONNECTION: mysql
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_DATABASE: e_voting_database
+      DB_USERNAME: evoting_user
+      DB_PASSWORD: evoting_secure_password_2026
+      CACHE_STORE: redis
+      REDIS_HOST: redis
+    volumes:
+      - ./backend:/var/www/html
+
+  # Nginx Web Host & React SPA Frontend
+  frontend:
+    build:
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile
+    container_name: evoting_frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:

@@ -1,95 +1,140 @@
-E-Voting System 🗳️
-A secure, web-based E-Voting System that allows users to cast their votes electronically for different election categories. The system ensures one vote per category per user, validates votes, and securely stores them in a database.
+# CivicVote Enterprise - Electronic Voting Platform 🗳️
 
-📌 Features
+[![Laravel](https://img.shields.io/badge/Laravel-11-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Docker](https://img.shields.io/badge/Docker-29.4-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com)
+[![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net)
 
-✔ User Authentication – Secure login required to vote.
-✔ Vote Casting – Users can vote for multiple categories (e.g., President, Governor, Senator).
-✔ Vote Validation – Ensures a user does not vote twice in the same category.
-✔ Database Integration – Votes are stored in a MySQL database.
-✔ Foreign Key Constraints – Ensures referential integrity between users, votes, and candidates.
+**CivicVote Enterprise** is a production-ready, enterprise-grade, secure, scalable, and containerized digital voting platform. It is engineered to meet modern software standards, providing zero-knowledge voter privacy, immutable cryptographic vote receipts, strict double-voting prevention, live turnout analytics, and full role-based administration.
 
-🛠️ Technologies Used
+---
 
-Frontend: HTML, CSS, JavaScript
-Backend: PHP
-Database: MySQL
-Server: Apache (XAMPP)
+## 📌 Architecture Overview
 
-📂 Database Schema
+CivicVote uses a clean microservices-based full-stack architecture:
 
-Users Table (userLogin)
+- **Backend (`/backend`)**: Laravel 11 (PHP 8.3) RESTful API with Sanctum authentication, Repository/Service architecture, Form Request validation, DB Transaction isolation, and automated tests.
+- **Frontend (`/frontend`)**: Single Page Application (SPA) built with React + Vite, Tailwind CSS, Lucide icons, Chart.js visualizations, Toast notifications, Dark mode, and WCAG AA accessibility.
+- **Containerization (`/docker`, `docker-compose.yml`)**: Multi-stage Docker setup featuring PHP-FPM 8.3, Nginx web host, MySQL 8.0, Redis, persistent volumes, and health checks.
+- **Documentation (`/docs`)**: Technical specs for System Architecture, REST API Reference, Database Schema ERD, and Deployment Guides.
+- **Legacy Archives (`/legacy`)**: Original procedural PHP scripts archived for reference.
 
-Column	Type	Attributes
+```
+                           +------------------------+
+                           |  Nginx Reverse Proxy   |
+                           |   (Port 80 / 443)      |
+                           +-----------+------------+
+                                       |
+                +----------------------+----------------------+
+                |                                             |
+                v                                             v
+    +-----------------------+                     +-----------------------+
+    |   Frontend (React)    |                     |   Backend (Laravel)   |
+    | Single Page App (Vite)|                     |  REST API & Sanctum   |
+    +-----------------------+                     +-----------+-----------+
+                                                              |
+                                           +------------------+------------------+
+                                           |                  |                  |
+                                           v                  v                  v
+                                    +--------------+   +--------------+   +--------------+
+                                    | MySQL 8.0 /  |   |    Redis     |   | Cryptographic|
+                                    | PostgreSQL   |   | Cache & Rate |   | Audit Stream |
+                                    +--------------+   +--------------+   +--------------+
+```
 
-id	INT	PRIMARY KEY, AUTO_INCREMENT,
+---
 
-NAME	VARCHAR(50)	NOT NULL,
+## 🔒 Security & Cryptographic Model
 
-email	VARCHAR(100)	UNIQUE, NOT NULL
+1. **Zero Double-Voting Guarantee**:
+   - Enforced at the database engine level via a composite unique index on `(voter_id_hash, category_id, election_id)`.
+   - Wrapped in ACID database transactions (`DB::transaction`) to guarantee zero duplicate submissions under high concurrency.
+2. **Voter Privacy vs. Public Auditability**:
+   - Decouples voter identity from candidate choices using anonymized SHA-256 hashes (`voter_id_hash`).
+   - Generates unique cryptographic receipt codes (e.g. `VOTE-A1B2-C3D4-E5F6`) for every cast vote.
+   - Public Audit Ledger allows voters to verify receipt inclusion at `/votes/verify/{receiptCode}` without exposing candidate choices.
+3. **Role-Based Access Control (RBAC)**:
+   - `super_admin`: Full system control & global election management.
+   - `election_admin`: Election wizard, position categories, and candidate setup.
+   - `election_officer`: Returning officer duties, live turnout monitoring.
+   - `voter`: Registered citizen account eligible to view ballots and cast votes.
+   - `auditor`: Read-only oversight of audit logs and results.
 
-password_hash	VARCHAR(255)	NOT NULL
+---
 
-Candidates Table (candidates)
+## 🚀 Quick Start via Docker Compose
 
-Column	Type	Attributes
+Spin up the complete container stack with a single command:
 
-candidate_id	INT	PRIMARY KEY, AUTO_INCREMENT
+```bash
+docker compose up -d --build
+```
 
-name	VARCHAR(100)	NOT NULL
+### Run Migrations & Seed Data
+Initialize database schema and realistic sample elections/candidates:
 
-category	ENUM('president', 'governor', 'senator')	NOT NULL
+```bash
+docker compose exec backend php artisan migrate:fresh --seed --force
+```
 
-Votes Table (votes)
+### Pre-Configured Seed Credentials
 
-Column	Type	Attributes
+| Role | Email | Password | Access Level |
+|---|---|---|---|
+| **Super Admin** | `admin@evoting.org` | `Admin@123456` | Full Control & Deletion |
+| **Election Admin** | `election.admin@evoting.org` | `Admin@123456` | Election Wizard & Candidates |
+| **Election Officer** | `officer@evoting.org` | `Officer@123456` | Turnout Analytics |
+| **Auditor** | `auditor@evoting.org` | `Auditor@123456` | Audit Log Oversight |
+| **Voter** | `alice@gmail.com` | `VoterPass123!` | Voting Ballot & Receipts |
 
-vote_id	INT	PRIMARY KEY, AUTO_INCREMENT
+---
 
-user_id	INT	FOREIGN KEY REFERENCES users(id) ON DELETE CASCADE
+## 💻 Local Manual Development Setup
 
-category	ENUM('president', 'governor', 'senator')	NOT NULL
+### 1. Backend (Laravel API)
+```bash
+cd backend
+composer install
+php artisan key:generate
+php artisan migrate:fresh --seed
+php artisan serve --port=8000
+```
 
-candidate_id	INT	FOREIGN KEY REFERENCES candidates(candidate_id) ON DELETE CASCADE
+### 2. Frontend (React SPA)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+---
 
-🔧 Installation & Setup
+## 🧪 Automated Testing
 
+### Run Backend Feature & Unit Tests:
+```bash
+cd backend
+php artisan test
+```
 
-1️⃣ Clone the Repository
+### Run Frontend Build Check:
+```bash
+cd frontend
+npm run build
+```
 
+---
 
-git clone https://github.com/your-username/e-voting-system.git
-cd e-voting-system
+## 📚 Technical Documentation
 
-2️⃣ Setup Database
+- 📄 [Architecture Specification](docs/ARCHITECTURE.md)
+- 📄 [REST API Reference](docs/API_REFERENCE.md)
+- 📄 [Database Schema & ERD](docs/DATABASE_SCHEMA.md)
+- 📄 [Deployment & Operations Guide](docs/DEPLOYMENT_GUIDE.md)
 
-Import database.sql into MySQL.
+---
 
-Update database credentials in Database.php.
-
-3️⃣ Start Apache & MySQL (XAMPP/WAMP)
-
-4️⃣ Run the Project
-
-Place the project folder in the htdocs directory of XAMPP, then open:
-
-http://localhost/VotingSystemProject
-
-🚀 How It Works
-
-1️⃣ User logs in to vote.
-2️⃣ Selects a candidate in each category.
-3️⃣ Votes are validated & stored in the database.
-4️⃣ User cannot vote twice in the same category.
-
-📌 To-Do / Future Improvements  
-  
-✅ Admin panel for vote management.
-✅ Real-time voting statistics.
-✅ Enhanced security features.
-
-
-🙌 Contributors
-👤 MILTON - Project Developer
-👤 
+## 🙌 Contributors
+- **MILTON** - Lead System Architect & Developer
